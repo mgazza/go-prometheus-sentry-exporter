@@ -2,7 +2,7 @@ package main_test
 
 import (
 	"bytes"
-	ex "github.com/mgazza/go-sentry-prometheus-exporter"
+	ex "github.com/mgazza/go-prometheus-sentry-exporter"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"

@@ -1,4 +1,4 @@
-module github.com/mgazza/go-sentry-prometheus-exporter
+module github.com/mgazza/go-prometheus-sentry-exporter
 
 go 1.17
 
