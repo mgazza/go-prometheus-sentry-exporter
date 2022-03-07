@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-prometheus-sentry-exporter
+  labels:
+    app: go-prometheus-sentry-exporter
+spec:
+  selector:
+    matchLabels:
+      app: go-prometheus-sentry-exporter
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: http
+        prometheus.io/path: /metrics
+      labels:
+        app: go-prometheus-sentry-exporter
+    spec:
+      containers:
+        - name: go-prometheus-sentry-exporter
+          image: ghcr.io/mgazza/go-prometheus-sentry-exporter:1.0.0
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: SENTRY_ORG
+              valueFrom:
+                configMapKeyRef:
+                  key: org
+                  name: sentry
+            - name: SENTRY_AUTH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: auth-token
+                  name: sentry
+          args:
+            - --sentry-org=$(SENTRY_ORG)
+            - --sentry-auth-token=$(SENTRY_AUTH_TOKEN)

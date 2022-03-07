@@ -1,0 +1,11 @@
+resources:
+  - deployment.yaml
+
+secretGenerator:
+  - name: sentry
+    literals:
+      - auth-token=yourtokenhere
+configMapGenerator:
+  - name: sentry
+    literals:
+      - org=yourorghere
