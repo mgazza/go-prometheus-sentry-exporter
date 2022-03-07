@@ -15,7 +15,7 @@ based on the [prometheus sentry exporter](https://github.com/ujamii/prometheus-s
 
 ## Sentry Auth token 
 
-You can generate this from https://sentry.io/settings/{organization_slug}/developer-settings/).
+You can generate this `https://sentry.io/settings/{organization_slug}/developer-settings/`.
 
 ### Full steps
 
